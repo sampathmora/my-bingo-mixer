@@ -4,27 +4,38 @@ interface StartScreenProps {
 
 export function StartScreen({ onStart }: StartScreenProps) {
   return (
-    <div className="flex flex-col items-center justify-center min-h-full p-6 bg-gray-50">
-      <div className="text-center max-w-sm">
-        <h1 className="text-4xl font-bold text-gray-900 mb-2">Bingo Mixer</h1>
-        <p className="text-lg text-gray-600 mb-8">Find your people!</p>
-        
-        <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 mb-8">
-          <h2 className="font-semibold text-gray-800 mb-3">How to play</h2>
-          <ul className="text-left text-gray-600 text-sm space-y-2">
-            <li>• Find people who match the questions</li>
-            <li>• Tap a square when you find a match</li>
-            <li>• Get 5 in a row to win!</li>
+    <div className="galaxy-stage flex min-h-full items-center justify-center px-5 py-8 sm:px-8">
+      <div className="starfield" aria-hidden="true" />
+
+      <section className="galaxy-reveal relative z-10 w-full max-w-lg space-y-5 text-center">
+        <header className="space-y-3">
+          <p className="text-xs font-semibold tracking-[0.35em] text-cosmic-muted uppercase">
+            Mixer Mission
+          </p>
+          <h1 className="galaxy-title text-3xl leading-tight sm:text-4xl">
+            Bingo Mixer
+          </h1>
+          <p className="galaxy-subtitle mx-auto max-w-md text-sm sm:text-base">
+            Orbit the room, spark conversations, and chart a full line before anyone else.
+          </p>
+        </header>
+
+        <div className="galaxy-panel p-5 text-left sm:p-6">
+          <h2 className="galaxy-title mb-3 text-base sm:text-lg">How to Play</h2>
+          <ul className="space-y-2 text-sm text-cosmic-muted sm:text-[0.95rem]">
+            <li>Find someone who matches a square prompt.</li>
+            <li>Tap the square to log your cosmic discovery.</li>
+            <li>Complete 5 in a row to trigger bingo.</li>
           </ul>
         </div>
 
         <button
           onClick={onStart}
-          className="w-full bg-accent text-white font-semibold py-4 px-8 rounded-lg text-lg active:bg-accent-light transition-colors"
+          className="cosmic-button w-full px-7 py-4 text-base font-semibold tracking-[0.06em] sm:text-lg"
         >
-          Start Game
+          Launch Game
         </button>
-      </div>
+      </section>
     </div>
   );
 }

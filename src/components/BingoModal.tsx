@@ -4,17 +4,21 @@ interface BingoModalProps {
 
 export function BingoModal({ onDismiss }: BingoModalProps) {
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-      <div className="bg-white rounded-xl p-6 max-w-xs w-full text-center shadow-xl animate-[bounce_0.5s_ease-out]">
-        <div className="text-5xl mb-4">🎉</div>
-        <h2 className="text-3xl font-bold text-amber-500 mb-2">BINGO!</h2>
-        <p className="text-gray-600 mb-6">You completed a line!</p>
-        
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-cosmic-bg/72 p-4 backdrop-blur-sm">
+      <div className="starfield" aria-hidden="true" />
+
+      <div className="galaxy-panel galaxy-reveal relative z-10 w-full max-w-sm p-6 text-center sm:p-7">
+        <div className="mb-4 text-5xl">✨</div>
+        <h2 className="galaxy-title mb-2 text-2xl sm:text-3xl">Bingo!</h2>
+        <p className="mb-6 text-sm text-cosmic-muted sm:text-base">
+          Constellation complete. You locked in a winning line.
+        </p>
+
         <button
           onClick={onDismiss}
-          className="w-full bg-accent text-white font-semibold py-3 px-6 rounded-lg active:bg-accent-light transition-colors"
+          className="cosmic-button w-full px-6 py-3 text-base font-semibold tracking-[0.05em]"
         >
-          Keep Playing
+          Keep Exploring
         </button>
       </div>
     </div>

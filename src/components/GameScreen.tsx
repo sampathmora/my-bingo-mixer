@@ -17,33 +17,31 @@ export function GameScreen({
   onReset,
 }: GameScreenProps) {
   return (
-    <div className="flex flex-col min-h-full bg-gray-50">
-      {/* Header */}
-      <header className="flex items-center justify-between p-3 bg-white border-b border-gray-200">
+    <div className="galaxy-stage flex min-h-full flex-col px-4 py-4 sm:px-6">
+      <div className="starfield" aria-hidden="true" />
+
+      <header className="galaxy-panel galaxy-reveal relative z-10 mb-3 flex items-center justify-between px-3 py-3 sm:px-4">
         <button
           onClick={onReset}
-          className="text-gray-500 text-sm px-3 py-1.5 rounded active:bg-gray-100"
+          className="rounded-md border border-cosmic-border/75 px-3 py-1.5 text-sm font-medium text-cosmic-muted transition-colors hover:bg-cosmic-surface-soft/80 focus-visible:outline-2 focus-visible:outline-accent-light"
         >
           ← Back
         </button>
-        <h1 className="font-bold text-gray-900">Bingo Mixer</h1>
-        <div className="w-16"></div>
+        <h1 className="galaxy-title text-sm sm:text-base">Bingo Mixer</h1>
+        <div className="w-16" aria-hidden="true" />
       </header>
 
-      {/* Instructions */}
-      <p className="text-center text-gray-500 text-sm py-2 px-4">
+      <p className="galaxy-panel galaxy-reveal relative z-10 mb-3 px-4 py-2 text-center text-sm text-cosmic-muted [animation-delay:80ms]">
         Tap a square when you find someone who matches it.
       </p>
 
-      {/* Bingo indicator */}
       {hasBingo && (
-        <div className="bg-amber-100 text-amber-800 text-center py-2 font-semibold text-sm">
-          🎉 BINGO! You got a line!
+        <div className="galaxy-reveal relative z-10 mb-3 rounded-xl border border-bingo/70 bg-bingo/20 px-4 py-2 text-center text-sm font-semibold tracking-wide text-bingo shadow-[var(--glow-bingo)] [animation-delay:120ms]">
+          BINGO! You completed a stellar line.
         </div>
       )}
 
-      {/* Board */}
-      <div className="flex-1 flex items-center justify-center p-3">
+      <div className="relative z-10 flex flex-1 items-center justify-center pb-2">
         <BingoBoard
           board={board}
           winningSquareIds={winningSquareIds}

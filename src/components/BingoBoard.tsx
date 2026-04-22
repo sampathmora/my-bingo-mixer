@@ -9,15 +9,17 @@ interface BingoBoardProps {
 
 export function BingoBoard({ board, winningSquareIds, onSquareClick }: BingoBoardProps) {
   return (
-    <div className="grid grid-cols-5 gap-1 w-full max-w-md mx-auto aspect-square">
-      {board.map((square) => (
-        <BingoSquare
-          key={square.id}
-          square={square}
-          isWinning={winningSquareIds.has(square.id)}
-          onClick={() => onSquareClick(square.id)}
-        />
-      ))}
-    </div>
+    <section className="galaxy-panel galaxy-reveal w-full max-w-md p-2 sm:max-w-xl sm:p-3 [animation-delay:170ms]">
+      <div className="grid aspect-square w-full grid-cols-5 gap-1.5 sm:gap-2">
+        {board.map((square) => (
+          <BingoSquare
+            key={square.id}
+            square={square}
+            isWinning={winningSquareIds.has(square.id)}
+            onClick={() => onSquareClick(square.id)}
+          />
+        ))}
+      </div>
+    </section>
   );
 }
